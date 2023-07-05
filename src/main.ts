@@ -49,5 +49,12 @@ navigator.mediaDevices
 pinWinElement.addEventListener("click", async () => {
   isOnTop = !isOnTop;
   await appWindow.setAlwaysOnTop(isOnTop);
-  isOnTop ? (pinWinElement.src = "/src/assets/pin.svg") : (pinWinElement.src = "/src/assets/unpin.svg");
+  isOnTop ? (pinWinElement.src = getAssetSrc("pin.svg")) : (pinWinElement.src = getAssetSrc("unpin.svg"));
 });
+
+const getAssetSrc = (name: string) => {
+  const path = `/src/assets/${name}`;
+  const modules = import.meta.glob("/src/assets/*", { eager: true });
+  const mod = modules[path] as { default: string };
+  return mod.default;
+};
