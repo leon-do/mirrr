@@ -18,7 +18,8 @@
         "open": true
       },
       "window": {
-        "startDragging": true
+        "startDragging": true,
+        "setAlwaysOnTop": true
       }
     },
     "bundle": {
@@ -45,7 +46,7 @@
         "height": 600,
         "minWidth": 150,
         "minHeight": 150,
-        "alwaysOnTop": false,
+        "alwaysOnTop": true,
         "decorations": false
       }
     ]

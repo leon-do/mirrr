@@ -1,9 +1,12 @@
 import { invoke } from "@tauri-apps/api/tauri";
+import { appWindow } from "@tauri-apps/api/window";
 
 invoke("greet", { name: "starting main.ts" });
 
+let isOnTop = true;
 const nextCamElement = document.getElementById("nextCam") as HTMLButtonElement;
 const webcamElement = document.getElementById("webcam") as HTMLVideoElement;
+const onTopElement = document.getElementById("onTop") as HTMLButtonElement;
 
 // switch to next camera
 nextCamElement.addEventListener("click", async () => {
@@ -39,3 +42,9 @@ navigator.mediaDevices
   .catch((error) => {
     console.error("Error accessing the webcam:", error);
   });
+
+// toggleAlwaysOnTop
+onTopElement.addEventListener("click", async () => {
+  isOnTop = !isOnTop;
+  await appWindow.setAlwaysOnTop(isOnTop);
+});
