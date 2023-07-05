@@ -49,10 +49,5 @@ navigator.mediaDevices
 pinWinElement.addEventListener("click", async () => {
   isOnTop = !isOnTop;
   await appWindow.setAlwaysOnTop(isOnTop);
-  // change image
-  if (isOnTop) {
-    pinWinElement.src = "/src/assets/pin.svg";
-  } else {
-    pinWinElement.src = "/src/assets/unpin.svg";
-  }
+  isOnTop ? (pinWinElement.src = "/src/assets/pin.svg") : (pinWinElement.src = "/src/assets/unpin.svg");
 });
