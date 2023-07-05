@@ -3,10 +3,10 @@ import { appWindow } from "@tauri-apps/api/window";
 
 invoke("greet", { name: "starting main.ts" });
 
-let isOnTop = true;
-const nextCamElement = document.getElementById("nextCam") as HTMLButtonElement;
+let isOnTop = false;
+const nextCamElement = document.getElementById("nextCam") as HTMLImageElement;
 const webcamElement = document.getElementById("webcam") as HTMLVideoElement;
-const onTopElement = document.getElementById("onTop") as HTMLButtonElement;
+const pinWinElement = document.getElementById("pinWin") as HTMLImageElement;
 
 // switch to next camera
 nextCamElement.addEventListener("click", async () => {
@@ -28,9 +28,11 @@ nextCamElement.addEventListener("click", async () => {
 // toggle buttons when window is focused
 window.addEventListener("focus", () => {
   nextCamElement.style.display = "block";
+  pinWinElement.style.display = "block";
 });
 window.addEventListener("blur", () => {
   nextCamElement.style.display = "none";
+  pinWinElement.style.display = "none";
 });
 
 // access webcam
@@ -44,7 +46,13 @@ navigator.mediaDevices
   });
 
 // toggleAlwaysOnTop
-onTopElement.addEventListener("click", async () => {
+pinWinElement.addEventListener("click", async () => {
   isOnTop = !isOnTop;
   await appWindow.setAlwaysOnTop(isOnTop);
+  // change image
+  if (isOnTop) {
+    pinWinElement.src = "/src/assets/pin.svg";
+  } else {
+    pinWinElement.src = "/src/assets/unpin.svg";
+  }
 });
