@@ -32,7 +32,6 @@ export APPLE_CERTIFICATE=MIIMfwIBAzCCDEYGCSqGSIb3DQEHAaCCDDcEggwzMIIMLzCCBscGCSq
 export APPLE_CERTIFICATE_PASSWORD=asdfasdf
 export APPLE_ID=leondo123@gmail.com
 export APPLE_PASSWORD=yolj-okke-kkzh-oszm
-
 ```
 
 ## Enable Camera
