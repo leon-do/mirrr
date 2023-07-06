@@ -26,6 +26,14 @@ npm run tauri dev
 npm run tauri build
 ```
 
+```
+export APPLE_SIGNING_IDENTITY="Developer ID Application: Leon Do (2R6AK4HUHA)"
+export APPLE_CERTIFICATE=MIIMfwIBAzCCDEYGCSqG...
+export APPLE_CERTIFICATE_PASSWORD=asdfasdf
+export APPLE_ID=leondo123@gmail.com
+export APPLE_PASSWORD=hmha-aake-kezc-oaom
+```
+
 ## Enable Camera
 
 `src-tauri/Info.plist`
