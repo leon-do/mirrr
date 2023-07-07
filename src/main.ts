@@ -5,7 +5,6 @@ invoke("greet", { name: "starting main.ts" });
 
 let isOnTop = false;
 const nextCamElement = document.getElementById("nextCam") as HTMLImageElement;
-const webcamElement = document.getElementById("webcam") as HTMLVideoElement;
 const pinWinElement = document.getElementById("pinWin") as HTMLImageElement;
 
 // switch to next camera
@@ -39,6 +38,7 @@ window.addEventListener("blur", () => {
 navigator.mediaDevices
   .getUserMedia({ audio: false, video: true })
   .then((stream) => {
+    const webcamElement = document.getElementById("webcam") as HTMLVideoElement;
     webcamElement.srcObject = stream;
   })
   .catch((error) => {
